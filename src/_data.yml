@@ -1,16 +1,13 @@
 lang: en
 
-home:
-  welcome: Hello, I am a person that writes stuff.
-
 menu_links: []
 extra_head: []
 
 # Metas plugin https://lume.land/plugins/metas/#description
 metas:
-  site: Blog name
-  description: General description of the blog
+  site: Ilyes Hernandez
+  description: My personal blog where I write about my thoughts and experiences about web development and programming.
   title: "=title"
   image: "=image"
-  twitter: "@username"
+  twitter: "@hdz_ilyes"
   lang: en

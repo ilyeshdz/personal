@@ -1,7 +1,7 @@
 import date, { Options as DateOptions } from "lume/plugins/date.ts";
 import postcss from "lume/plugins/postcss.ts";
 import terser from "lume/plugins/terser.ts";
-import prism, { Options as PrismOptions } from "lume/plugins/prism.ts";
+import shiki, { Options as ShikiOptions } from "https://deno.land/x/lume_shiki/mod.ts";
 import basePath from "lume/plugins/base_path.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
@@ -18,14 +18,30 @@ import { alert } from "npm:@mdit/plugin-alert@0.22.0";
 
 import "lume/types.ts";
 
+// Load custom shiki themes
+import lightTheme from "./shiki-light-theme.json" with { type: "json" };
+import darkTheme from "./shiki-dark-theme.json" with { type: "json" };
+
 export interface Options {
-  prism?: Partial<PrismOptions>;
+  shiki?: ShikiOptions;
   date?: Partial<DateOptions>;
   pagefind?: Partial<PagefindOptions>;
   feed?: Partial<FeedOptions>;
 }
 
 export const defaults: Options = {
+  shiki: {
+    themes: {
+      light: "ilyes-light",
+      dark: "ilyes-dark",
+    },
+    highlighter: {
+      langs: ["javascript", "typescript", "html", "css", "bash", "json"],
+      themes: [lightTheme, darkTheme],
+    },
+    useColorScheme: true,
+    cssFile: "/styles/shiki.css",
+  },
   feed: {
     output: ["/feed.xml", "/feed.json"],
     query: "type=post",
@@ -47,7 +63,7 @@ export default function (userOptions?: Options) {
     site.use(postcss())
       .use(basePath())
       .use(toc())
-      .use(prism(options.prism))
+      .use(shiki(options.shiki))
       .use(readingInfo())
       .use(date(options.date))
       .use(metas())

@@ -8,6 +8,23 @@
 @import "css/post.css";
 @import "css/comments.css";
 
+/* Custom gradient for text */
+:root {
+  --gradient-love-text: linear-gradient(135deg, #FEAADB, #F5EEDC, #608CFA);
+  --color-pink: #FEAADB;
+  --color-cream: #F5EEDC;
+  --color-blue: #608CFA;
+}
+
+/* Cream background for light and dark themes */
+:root {
+  --color-bg: #FAF8F3;
+}
+
+[data-theme="dark"] {
+  --color-bg: #121318;
+}
+
 /* Make the links black */
 :root {
   --color-link: var(--color-base);
@@ -15,6 +32,10 @@
 }
 
 /* Page layout */
+body {
+  background-color: var(--color-bg);
+}
+
 main {
   padding: var(--row-gap-medium) 0;
   max-width: min(100% - 15vw, 45em);
@@ -28,4 +49,17 @@ main {
 /* Search tweak */
 .search {
   margin-top: var(--row-gap-xsmall);
+}
+
+/* Override shiki CSS to use [data-theme] instead of prefers-color-scheme */
+.shiki,
+.shiki span {
+  background-color: var(--shiki-light-bg) !important;
+  color: var(--shiki-light) !important;
+}
+
+[data-theme="dark"] .shiki,
+[data-theme="dark"] .shiki span {
+  background-color: var(--shiki-dark-bg) !important;
+  color: var(--shiki-dark) !important;
 }

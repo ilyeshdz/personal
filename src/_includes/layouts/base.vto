@@ -11,6 +11,7 @@
     <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
     
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles/shiki.css">
     <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metas.site }}">
     <link rel="alternate" href="/feed.json" type="application/json" title="{{ metas.site }}">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -21,11 +22,7 @@
   <body>
     <nav class="navbar">
       <a href="/" class="navbar-home">
-        {{ if it.logo }}
-          {{ it.logo }}
-        {{ else }}
-          <strong>{{ metas.site }}</strong>
-        {{ /if }}
+        <img src="/favicon.png" alt="Ilyes Hernandez" width="32" height="32" style="border-radius: 4px;">
       </a>
 
       <ul class="navbar-links">
