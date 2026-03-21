@@ -36,7 +36,7 @@ export const defaults: Options = {
       dark: "ilyes-dark",
     },
     highlighter: {
-      langs: ["javascript", "typescript", "html", "css", "bash", "json"],
+      langs: ["javascript", "typescript", "html", "css", "bash", "json", "jsonc"],
       themes: [lightTheme, darkTheme],
     },
     useColorScheme: true,
