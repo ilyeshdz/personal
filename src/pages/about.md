@@ -9,10 +9,9 @@ menu:
 
 Hey, I'm Ilyes.
 
-I'm 17, from Brittany, and I've been writing code for over five years. Not because someone pushed me into it, because I actually wanted to know how things work. Not just that they work. Why they do.
+17, from Brittany. I've been writing code for five years and I still can't stop pulling things apart to see what's inside.
 
-This blog is where I think out loud about web development and programming. I like digging into the internals of tools most people just install and forget. I like knowing what's underneath.
+I write here when I have something to say. Not on a schedule, not for an audience. Mostly to force myself to actually understand what I think I know.
 
-I don't follow hype. Popular doesn't mean good, and obscure doesn't mean bad. I care about what fits the problem, nothing else.
-
-If that sounds like you, you'll probably find something worth reading here.
+I don't really care about what's popular. I care about what makes sense.
+Anyway. Stick around if you want.
