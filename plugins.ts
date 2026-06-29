@@ -11,9 +11,9 @@ import sitemap from "lume/plugins/sitemap.ts";
 import feed, { Options as FeedOptions } from "lume/plugins/feed.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
 import { merge } from "lume/core/utils/object.ts";
-import toc from "https://deno.land/x/lume_markdown_plugins@v0.9.0/toc.ts";
-import image from "https://deno.land/x/lume_markdown_plugins@v0.9.0/image.ts";
-import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.9.0/footnotes.ts";
+import toc from "https://deno.land/x/lume_markdown_plugins@v0.12.0/toc.ts";
+import image from "https://deno.land/x/lume_markdown_plugins@v0.12.0/image.ts";
+import footnotes from "https://deno.land/x/lume_markdown_plugins@v0.12.0/footnotes.ts";
 import { alert } from "npm:@mdit/plugin-alert@0.22.0";
 
 import "lume/types.ts";
