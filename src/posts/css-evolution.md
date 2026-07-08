@@ -7,7 +7,7 @@ tags:
   - Web Development
 ---
 
-CSS has been around for more than 20 years. It is the only styling language built specifically for the web platform, and it is one of the three core technologies that make the web what it is. Without it, every page would be a block of black text on a white background, laid out from top to bottom with no control whatsoever. That is not an exaggeration. That is what the web looks like without CSS.
+CSS has been around for about 30 years. It is the only styling language built specifically for the web platform, and it is one of the three core technologies that make the web what it is. Without it, every page would be a block of black text on a white background, laid out from top to bottom with no control whatsoever. That is not an exaggeration. That is what the web looks like without CSS.
 
 The original design goal of CSS has never changed. It is a declarative language that describes how documents should be presented. It does one thing and it does it in a standardized way that works across browsers. That restraint is not a weakness. It is the reason CSS has survived for two decades without being replaced. It never tried to be more than a styling language.
 
