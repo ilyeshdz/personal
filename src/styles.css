@@ -63,3 +63,18 @@ main {
   background-color: var(--shiki-dark-bg) !important;
   color: var(--shiki-dark) !important;
 }
+
+/* Google Fonts override */
+:root {
+  --font-family-display: "Geist Pixel", sans-serif;
+  --font-family-ui: "Geist", sans-serif;
+  --font-family-code: "JetBrains Mono", monospace;
+  --font-title: var(--font-bold) clamp(1.5rem,8vw,2rem)/1.2 var(--font-family-display);
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-family-display: "Geist Pixel", sans-serif;
+    --font-family-ui: "Geist", sans-serif;
+  }
+}

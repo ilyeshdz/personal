@@ -7,6 +7,7 @@ import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
 import metas from "lume/plugins/metas.ts";
 import pagefind, { Options as PagefindOptions } from "lume/plugins/pagefind.ts";
+import googleFonts from "lume/plugins/google_fonts.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import feed, { Options as FeedOptions } from "lume/plugins/feed.ts";
 import readingInfo from "lume/plugins/reading_info.ts";
@@ -72,6 +73,11 @@ export default function (userOptions?: Options) {
       .use(resolveUrls())
       .use(slugifyUrls())
       .use(terser())
+      .use(googleFonts({
+        fonts: "https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Geist+Pixel&display=swap",
+        subsets: ["latin", "latin-ext"],
+        cssFile: "/styles.css",
+      }))
       .use(pagefind(options.pagefind))
       .use(sitemap())
       .use(feed(options.feed))
