@@ -46,6 +46,16 @@
   margin-top: var(--row-gap-medium);
 }
 
+.page-pagination a {
+  padding: 0.5em 0;
+}
+
+.page-pagination a:hover,
+[data-theme="dark"] .page-pagination a:hover {
+  background: none;
+  color: var(--color-dim);
+}
+
 /* Code styling with brand colors */
 :not(pre) > code {
   background: rgba(254, 170, 219, 0.03);
