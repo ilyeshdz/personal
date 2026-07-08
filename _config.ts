@@ -9,6 +9,7 @@ const site = lume({
   },
 });
 
+site.cache = null as never;
 site.use(plugins());
 
 export default site;

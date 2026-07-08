@@ -5,6 +5,7 @@ import shiki, { Options as ShikiOptions } from "https://deno.land/x/lume_shiki/m
 import basePath from "lume/plugins/base_path.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import resolveUrls from "lume/plugins/resolve_urls.ts";
+import ogImages from "lume/plugins/og_images.ts";
 import metas from "lume/plugins/metas.ts";
 import pagefind, { Options as PagefindOptions } from "lume/plugins/pagefind.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
@@ -26,9 +27,12 @@ import darkTheme from "./shiki-dark-theme.json" with { type: "json" };
 export interface Options {
   shiki?: ShikiOptions;
   date?: Partial<DateOptions>;
+  ogImages?: unknown;
   pagefind?: Partial<PagefindOptions>;
   feed?: Partial<FeedOptions>;
 }
+
+const geistPixel = await Deno.readFile("./src/_includes/fonts/GeistPixel-Square.ttf");
 
 export const defaults: Options = {
   shiki: {
@@ -54,6 +58,26 @@ export const defaults: Options = {
       title: "=title",
     },
   },
+  ogImages: {
+    options: {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Geist Pixel",
+          weight: 400,
+          style: "normal",
+          data: geistPixel,
+        },
+        {
+          name: "Geist Pixel",
+          weight: 700,
+          style: "normal",
+          data: geistPixel,
+        },
+      ],
+    },
+  },
 };
 
 /** Configure the site */
@@ -67,7 +91,6 @@ export default function (userOptions?: Options) {
       .use(shiki(options.shiki))
       .use(readingInfo())
       .use(date(options.date))
-      .use(metas())
       .use(image())
       .use(footnotes())
       .use(resolveUrls())
@@ -78,6 +101,8 @@ export default function (userOptions?: Options) {
         subsets: ["latin", "latin-ext"],
         cssFile: "/styles.css",
       }))
+      .use(ogImages(options.ogImages as never))
+      .use(metas())
       .use(pagefind(options.pagefind))
       .use(sitemap())
       .use(feed(options.feed))

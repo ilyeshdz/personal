@@ -1,5 +1,7 @@
 type: post
 layout: layouts/post.vto
+openGraphLayout: /layouts/og_image.jsx
+openGraphKind: post
 
 metas:
   title: "=title"
