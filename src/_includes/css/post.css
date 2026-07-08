@@ -1,3 +1,8 @@
+.post-body h3,
+.post-body h4 {
+  font-family: var(--font-family-display);
+}
+
 .post-header {
   margin-bottom: var(--row-gap-small);
 }

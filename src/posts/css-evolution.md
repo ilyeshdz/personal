@@ -40,6 +40,8 @@ $padding: 1rem;
 
 Sass became the standard because it solved real problems. The SCSS syntax made the transition from CSS trivial. Every valid CSS file was already valid SCSS. Frameworks like Bootstrap built their entire ecosystem on it. For years, starting a serious frontend project without Sass felt irresponsible.
 
+### Custom properties: the first crack
+
 But the web platform was watching. CSS custom properties (variables) eventually landed in browsers. That alone removed one of the biggest reasons to reach for a preprocessor.
 
 ```css
@@ -56,6 +58,8 @@ But the web platform was watching. CSS custom properties (variables) eventually 
 
 What most people do not realize is that custom properties took so long because they are fundamentally different from Sass variables. Sass variables are compiled away at build time. They do not exist in the browser. CSS custom properties cascade, inherit, and are available at runtime. You can change them with JavaScript, override them inside media queries, or set them dynamically based on user interaction. That flexibility required the CSS working group to solve cascade resolution problems that a build-time tool never had to face. The implementation was harder, but the result is more powerful.
 
+### Nesting goes native
+
 Then came native nesting. Now every major browser supports it. After depending on Sass for nested selectors for over a decade and a half, the browser can finally do it natively.
 
 ```css
@@ -69,6 +73,8 @@ Then came native nesting. Now every major browser supports it. After depending o
   }
 }
 ```
+
+### The tooling ecosystem
 
 The preprocessor era was also about the tooling ecosystem that grew around it. Tools like PostCSS and Autoprefixer changed how I thought about browser support. Instead of waiting for every browser to implement a feature consistently, I could write modern CSS and let the tooling handle backward compatibility. That was a profound shift. It separated the CSS I write from the CSS the browser receives. Once that separation existed, adding a preprocessing step felt natural rather than exotic.
 
@@ -100,6 +106,8 @@ const Button = styled.button`
 `;
 ```
 
+### The runtime cost
+
 It felt like magic. And like most magic, it had a hidden cost. Styled-components runs in the browser. Every styled element is parsed, hashed, and injected into the DOM at runtime. If JavaScript fails to load, your styles do not exist. If you are on a slow device, the style injection competes with your application code. Pages that work perfectly on a developer's MacBook stutter on a mid-range Android phone.
 
 The performance cost is easy to overlook when you develop on a modern machine. Runtime CSS-in-JS means every style definition must be serialized, parsed, and inserted as a `<style>` tag during JavaScript execution. The browser's own CSS parser is written in C++ and runs before JavaScript. When you bypass it by generating styles in JavaScript, you lose that performance advantage entirely. On top of that, the library itself adds meaningful overhead to your bundle. That is not a dealbreaker for every project, but it is pure cost that does nothing except enable the abstraction itself.
@@ -107,6 +115,8 @@ The performance cost is easy to overlook when you develop on a modern machine. R
 Then there is the hydration problem. When you server-render styled-components, the server generates class names and injects critical CSS into the response. On the client, the runtime must generate the same class names and reconcile them. If the hashes do not match, you get a flash of unstyled content or a full re-render. This is not a bug. It is a fundamental tension between generating styles at build time or server time and regenerating them on the client.
 
 The deeper problem is architectural. Runtime CSS-in-JS fundamentally depends on JavaScript being present and executing in the browser. For React Server Components, where components run entirely on the server, this model breaks completely. The React team has been clear about this. Runtime CSS-in-JS is not compatible with the server component model, and there is no path to make it compatible without fundamentally changing how it works.
+
+### CSS Modules: the quiet alternative
 
 I have always felt that CSS Modules deserved more attention than they got. The idea is simple: write plain CSS in a `.module.css` file, and the build tool scopes every class name automatically by adding a unique hash. No runtime. No JavaScript dependency. No new syntax to learn. It is just CSS that happens to be scoped.
 
@@ -137,6 +147,8 @@ function Button({ variant, children }) {
 ```
 
 CSS Modules solved scoping without any of the runtime overhead. They never got the hype of styled-components because they did not offer anything flashy. They just worked. And for many teams, that was enough.
+
+### Build-time CSS-in-JS
 
 The limitations of runtime CSS-in-JS led to a new category of tools: build-time CSS-in-JS. Panda CSS is the most notable example. It reads your source files at build time, extracts every style call, and generates a plain CSS file before anything reaches the browser. Zero runtime overhead. Works with server components. Type-safe design tokens.
 
@@ -189,6 +201,8 @@ Tailwind's core insight is simple. Instead of writing custom CSS for every compo
 </div>
 ```
 
+### The recipe for success
+
 The utility-first idea was not new. Frameworks like Tachyons and BassCSS had already explored atomic CSS, where every class sets exactly one property. But Tailwind was the first to package it with a thoughtful design system, excellent documentation, and a JIT compiler that made the developer experience genuinely fast. It became the standard not because the idea was new, but because the execution was unmatched.
 
 I genuinely love what the Tailwind team has built. The consistency it brings to projects is undeniable. The fact that you can look at any Tailwind component and immediately understand its layout is a huge productivity gain. But I also think we need to be honest about what it is and is not.
@@ -205,6 +219,8 @@ It is a convenience layer over CSS. Every utility class maps to one or more CSS 
 The syntax also is not CSS. Tailwind ships with a complete baked-in design system. The spacing scale, the color palette, the breakpoints, the font sizes. You can customize all of it, and many teams do. But most developers never touch the config. They use the defaults. And those defaults are someone else's design decisions, inherited without thought.
 
 For me personally, I have found myself reaching for a different approach. UnoCSS is an on-demand atomic CSS engine that takes the utility-first idea and makes it unopinionated. It does not ship with a fixed set of utilities. Instead, it provides presets that you can mix, including one that emulates Tailwind exactly, and lets you build your own system. You define your color palette, your spacing scale, your breakpoints. Truly yours. It is the difference between renting an apartment and building your own house.
+
+### Broader influence
 
 The utility-first approach has been so influential that even traditional frameworks have adopted it. Bootstrap, which started as a component library with `.btn` and `.card` classes, now ships extensive utility classes in its recent versions. The industry has accepted that utilities are useful. The question is not whether to use them, but how much of a system you want to bring along with them.
 
@@ -255,6 +271,8 @@ Custom properties replaced the variables that Sass provided. Native nesting repl
   }
 }
 ```
+
+### Cascade layers
 
 Cascade layers deserve special attention because they solve a problem that caused endless frustration. For years, managing specificity meant writing stronger selectors, reaching for `!important`, or relying on naming conventions to keep styles from conflicting. Cascade layers give you explicit control. Define `base`, `components`, `utilities`, and whatever layer comes last wins, regardless of specificity. It does not eliminate the cascade. It gives you a way to organize it that matches how you actually think about your styles. Every preprocessor and CSS-in-JS library built its own version of this. Now it is native.
 
