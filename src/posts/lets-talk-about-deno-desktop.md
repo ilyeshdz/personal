@@ -11,7 +11,7 @@ I've been building web applications for a long time. But there's one thing I've 
 
 There are plenty of solutions out there that let you build desktop apps with web technologies. Some of them use completely different languages for the backend, which never felt right to me. Others, like Electron, use Node.js with Chromium or the host's native web engine. They're genuinely impressive.
 
-But they wouldn't use Deno.
+However, they wouldn't use Deno.
 
 Deno is built to be minimal. And there was no minimal solution based on Deno that provided the same capabilities as Electron, in a simple way, mostly compatible with most Deno projects.
 
@@ -49,7 +49,7 @@ That default tells you a lot about their thinking. WebView keeps your app around
 
 There's also a raw mode underneath that removes the browser engine entirely, meant for WebGPU or custom rendering. I don't think it's useful yet. But maybe someday someone will build a Deno library on top of it that lets you draw directly to the screen with no web engine at all. That would be fun. I haven't heard of anyone doing it yet.
 
-But the flexibility itself is what matters. And the binary size argument isn't even the thing I find most interesting.
+However, the flexibility itself is what matters. And the binary size argument isn't even the thing I find most interesting.
 
 ## In-process channels are my favorite part
 

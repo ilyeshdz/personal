@@ -15,7 +15,7 @@ Looking back at frontend development in the late 2000s, the frustration is hard 
 
 This created a pattern. Every time the platform fell short, the community built a workaround. Those workarounds became tools. Those tools became dependencies. And those dependencies reshaped how we thought about CSS entirely. Each new abstraction solved a real problem, but it also moved us further from writing actual CSS. Eventually, it became natural to assume that any serious project needed a layer on top of CSS to be viable.
 
-But if CSS is so good at its job, why have we spent so long building alternative ecosystems on top of it? Preprocessors, CSS-in-JS libraries, utility frameworks. The list keeps growing. Every one of them claims to fix something that CSS was supposedly doing wrong.
+However, if CSS is so good at its job, why have we spent so long building alternative ecosystems on top of it? Preprocessors, CSS-in-JS libraries, utility frameworks. The list keeps growing. Every one of them claims to fix something that CSS was supposedly doing wrong.
 
 The answer is that CSS was never wrong. It was incomplete. And for a long time, the only way to get the features we needed was to build them ourselves.
 
@@ -42,7 +42,7 @@ Sass became the standard because it solved real problems. The SCSS syntax made t
 
 ### Custom properties: the first crack
 
-But the web platform was watching. CSS custom properties (variables) eventually landed in browsers. That alone removed one of the biggest reasons to reach for a preprocessor.
+However, the web platform was watching. CSS custom properties (variables) eventually landed in browsers. That alone removed one of the biggest reasons to reach for a preprocessor.
 
 ```css
 :root {
@@ -86,7 +86,7 @@ Sass is not dead. It is still actively maintained and widely used. But the argum
 
 Preprocessors were not a mistake. They were a bridge. And like every bridge, once you cross it, you do not need to keep living on it.
 
-But preprocessing was still about extending CSS syntax. The next generation of tools approached the problem from a completely different direction.
+However, preprocessing was still about extending CSS syntax. The next generation of tools approached the problem from a completely different direction.
 
 ## CSS-in-JS: runtime, build-time, and the object problem
 
@@ -284,6 +284,6 @@ Subgrid, anchor positioning, and view transitions continue this pattern. Each on
 
 None of this means you should stop using your current tools. Tailwind is faster to write than raw CSS for most layouts. Styled-components solved real problems with scoping and co-location that CSS is only now catching up on. And there are massive codebases running Sass in production that will not be rewritten. They should not be. The investment in those tools is already made, and they work well.
 
-But the question is no longer which abstraction to choose. The frontend community spent nearly twenty years building workarounds that browser vendors have slowly integrated into the platform itself. We built bridges, and then the landscape shifted so they were no longer needed. Not because the bridges were bad, but because the other side moved closer.
+However, the question is no longer which abstraction to choose. The frontend community spent nearly twenty years building workarounds that browser vendors have slowly integrated into the platform itself. We built bridges, and then the landscape shifted so they were no longer needed. Not because the bridges were bad, but because the other side moved closer.
 
 CSS was never broken. It was just incomplete. Now it is finishing its sentences.

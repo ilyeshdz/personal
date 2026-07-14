@@ -14,7 +14,7 @@ My answer, at least for new projects, is no. **Just use Deno.**
 
 I started with [Node](https://nodejs.org) like almost everyone else. It was everywhere, the community was massive, and every problem I ran into had three Stack Overflow answers and a Medium post from 2017 to go with it. I got good at it, not just "can build a REST API" good, but the kind of comfortable where you stop thinking about the tool and just think about the problem.
 
-But somewhere along the way, that comfort started to feel expensive.
+However, somewhere along the way, that comfort started to feel expensive.
 
 I'm not talking about the runtime itself. What I mean is the *ecosystem overhead*. The moment you start a real project, you're not just writing code. You're picking a linter, configuring ESLint, wiring Prettier, writing a `tsconfig.json`, deciding on a test runner, installing `ts-node` just to run a TypeScript file. Before you've written a single line of business logic, you've made fifteen decisions and touched seven config files.
 
@@ -83,7 +83,7 @@ Because migration is expensive and organizations are rational. If you're running
 
 Ecosystem inertia isn't stupidity. It's survival instinct at scale.
 
-But that argument only applies to existing projects. For something new, a greenfield API, a CLI tool, a prototype, there's no migration cost. There's only a choice.
+However, that argument only applies to existing projects. For something new, a greenfield API, a CLI tool, a prototype, there's no migration cost. There's only a choice.
 
 
 ## So just use Deno
