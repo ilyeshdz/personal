@@ -141,6 +141,50 @@ cms.collection(
 );
 
 cms.collection(
+  "projects: Projects",
+  "src:projects/*.md",
+  [
+    "title: text",
+    {
+      name: "description",
+      type: "text",
+      label: "Description",
+      description: "One or two sentences shown in the projects list.",
+    },
+    {
+      name: "language",
+      type: "text",
+      label: "Language",
+      description: "The main language or tool the project is written in.",
+    },
+    "date: date",
+    {
+      name: "stack",
+      type: "list",
+      label: "Stack",
+      description: "Technologies used, shown as pills.",
+    },
+    {
+      name: "source",
+      type: "url",
+      label: "Source code",
+      description: "Link to the repository.",
+    },
+    url,
+    {
+      name: "extra_head",
+      type: "code",
+      description: "Extra content to include in the <head> tag",
+    },
+    {
+      name: "content",
+      type: "markdown",
+      label: "Content",
+    },
+  ],
+);
+
+cms.collection(
   "pages: Additional pages, like about, contact, etc.",
   "src:pages/*.md",
   [

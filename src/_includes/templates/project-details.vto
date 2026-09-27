@@ -1,0 +1,17 @@
+<div class="post-details">
+  {{ if language }}
+    <p>{{ i18n.project.language }}: {{ language }}</p>
+  {{ /if }}
+
+  {{ if date }}
+    <p>{{ i18n.project.started }}: <time datetime="{{ date |> date('DATETIME') }}">{{ date |> date('HUMAN_DATE') }}</time></p>
+  {{ /if }}
+
+  {{ if stack?.length }}
+  <div class="post-tags">
+    {{ for item of stack }}
+      <span class="badge">{{ item }}</span>
+    {{ /for }}
+  </div>
+  {{ /if }}
+</div>

@@ -1,0 +1,37 @@
+/* On a project, the title is on the left and the source link on the right, with
+   the metadata underneath like on a post. */
+
+.project-header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1em;
+  margin-bottom: 0.2em;
+
+  & .post-title {
+    margin-bottom: 0;
+  }
+}
+
+/* The source link keeps the tag pill look, a little larger. */
+
+.project-source {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+    var(--gradient-love-text) border-box;
+  color: var(--color-base);
+  padding: 0.35em 0.9em;
+  border-radius: 1em;
+  text-decoration: none;
+  font-size: 1em;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+}
+
+.project-source:hover {
+  opacity: 1;
+}

@@ -1,0 +1,8 @@
+type: project
+layout: layouts/project.vto
+openGraphLayout: /layouts/og_image.jsx
+openGraphKind: post
+
+metas:
+  title: "=title"
+  description: "=description"

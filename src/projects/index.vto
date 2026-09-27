@@ -1,0 +1,41 @@
+---
+layout: layouts/projects.vto
+type: page
+title: Projects
+description: Everything I have built on my own, and why.
+menu:
+  visible: true
+  order: 2
+---
+
+<section class="postList">
+  {{ for project of search.pages("type=project", "date=desc") }}
+  <article class="post">
+    <header class="post-header">
+      <div class="project-header">
+        <h2 class="post-title">
+          <a href="{{ project.url }}" {{ if project.url == url }} aria-current="page"{{ /if }}>
+            {{ project.title }}
+          </a>
+        </h2>
+
+        {{ include "templates/project-source.vto" { source: project.source } }}
+      </div>
+
+      {{ include "templates/project-details.vto" {
+        language: project.language,
+        date: project.date,
+        stack: project.stack
+      } }}
+    </header>
+
+    <div class="post-excerpt body">
+      {{ project.description |> md }}
+    </div>
+
+    <a href="{{ project.url }}" class="post-link">
+      {{ i18n.nav.read_project }}
+    </a>
+  </article>
+  {{ /for }}
+</section>
